@@ -1,7 +1,7 @@
 # Loka Cover Builder
 
 A self-serve tool for generating on-brand blog cover images. Pick a template,
-edit it, export a 1600×900 PNG.
+edit it, export a 2000×1000 PNG.
 
 ## Run it
 
@@ -72,15 +72,5 @@ Available field keys: `layout`, `title`, `textColor`, `photo`, `grain`,
 drafts). To add cross-device saving later, reimplement those four functions
 against an API — nothing else in the app calls storage directly, so that's the
 only file that changes. See ROADMAP.md.
-
-## Notes
-
-- The demo photo in the Photo hero thumbnail is a Wesley Tingey shot from
-  Unsplash (free for commercial use). Swap `src/assets/demo-governance.jpg`
-  and update `templates/PhotoHero/fields.js` to change it.
-- Fonts: currently Inter/system sans. Drop Loka's brand font into `public/`,
-  add an `@font-face`, and update `fontFamily` in the renderers + theme.
-- The logo mark shown in covers is a text wordmark placeholder. Replace with
-  the real Loka logo SVG when available.
 ```
 # loka-cover-builder
