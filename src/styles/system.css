@@ -1,0 +1,278 @@
+/* Loka Design System — ported component styles.
+   Values are copied verbatim from loka-guidelines (buttonStyles.js, TabsPreview.jsx,
+   CheckboxPreview.jsx, InputFieldPreview.jsx, palette.js, global.css). Button, Checkbox
+   and Tabs colors are theme-invariant in the source system (literal Figma exports), so
+   they're reproduced as-is. The floating editor panel uses the system's own light
+   surface tokens — Input Field / Tabs / Checkbox are specced against a white card —
+   while the app shell keeps the system's dark-theme tokens.
+*/
+
+:root {
+  /* app shell — loka-guidelines .app[data-theme="dark"] */
+  --shell-bg: #0A0F17;
+  --shell-bg-soft: #121821;
+  --shell-ink: #F4F6F9;
+  --shell-ink-2: #C3CCDA;
+  --shell-ink-3: #8E9AAE;
+  --shell-line: #222B38;
+
+  /* editor panel — loka-guidelines .app (light) surface, home of the documented
+     Button / Tabs / Checkbox / Input Field components */
+  --panel-bg: #FFFFFF;
+  --panel-bg-soft: #FAFBFC;
+  --panel-ink: #010812;
+  --panel-ink-2: #2E3F5A;
+  --panel-ink-3: #5C6A82;
+  --panel-ink-4: #828FA5;
+  --panel-line: #E7ECF2;
+  --panel-line-2: #EFF1F5;
+  --panel-line-strong: #D6DCE6;
+
+  --blue: #1957F4;      /* NewBlue */
+  --blue-100: #186BF3;
+  --blue-soft: #EEF2FE;
+  --danger: #D64545;
+  --danger-soft: #FBEAEA;
+
+  --sys-font: 'Alliance No.2', 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+/* ── Button — Loka Figma "Button" component ────────────────────────────── */
+
+.loka-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 80px;
+  border: 1px solid transparent;
+  font-family: var(--sys-font);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background .12s, color .12s, transform .08s, opacity .12s;
+}
+.loka-btn:active:not(:disabled) { transform: scale(0.97); }
+.loka-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.loka-btn--primary { background: var(--blue-100); color: #FFFFFF; }
+.loka-btn--primary:hover:not(:disabled) { background: var(--blue); }
+
+.loka-btn--secondary { background: #E7ECF2; color: #020F1F; }
+.loka-btn--secondary:hover:not(:disabled) { background: #CCD4E0; }
+
+.loka-btn--outline-light {
+  background: rgba(120,138,161,.03);
+  color: #041D3E;
+  border-color: rgba(88,105,126,.35);
+}
+.loka-btn--outline-light:hover:not(:disabled) { background: rgba(120,138,161,.1); }
+
+.loka-btn--outline-dark {
+  background: rgba(255,255,255,.1);
+  color: #FFFFFF;
+  border-color: rgba(255,255,255,.16);
+}
+.loka-btn--outline-dark:hover:not(:disabled) { background: rgba(250,250,251,.2); }
+
+.loka-btn--sm { height: 34px; padding: 0 12px; font-size: 13px; }
+.loka-btn--block { width: 100%; }
+
+/* ── Tabs — Loka Figma "service-icon-item" + bar ───────────────────────── */
+
+.loka-tab-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.loka-tab-bar .loka-tab-item { flex: 1 1 0; min-width: 0; padding: 10px 6px; gap: 5px; justify-content: center; }
+.loka-tab-bar .loka-tab-mark { width: 8px; height: 8px; }
+.loka-tab-bar .loka-tab-mark::after { width: 4px; height: 4px; }
+.loka-tab-bar .loka-tab-label { font-size: 12.5px; }
+
+.loka-tab-list { display: flex; flex-direction: column; gap: 4px; }
+
+.loka-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  transition: background .12s;
+}
+.loka-tab-item:hover:not([data-active="true"]) { background: #FFFFFF; }
+.loka-tab-item:hover:not([data-active="true"]) .loka-tab-mark { border-color: var(--blue-100); }
+.loka-tab-item:hover:not([data-active="true"]) .loka-tab-mark::after { opacity: 1; }
+.loka-tab-item:hover:not([data-active="true"]) .loka-tab-label { color: var(--blue-100); }
+
+.loka-tab-item[data-active="true"] { background: #DBE7F5; }
+.loka-tab-item[data-active="true"] .loka-tab-mark { background: var(--blue-100); border-color: transparent; }
+.loka-tab-item[data-active="true"] .loka-tab-label { color: var(--blue-100); }
+
+.loka-tab-mark {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #DFDFE1;
+  transition: border-color .12s, background .12s;
+}
+.loka-tab-mark::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--blue-100);
+  opacity: 0;
+  transition: opacity .12s;
+}
+.loka-tab-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--sys-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #041D3E;
+  transition: color .12s;
+}
+
+/* ── Checkbox — Loka Figma "Checkbox / 40" ─────────────────────────────── */
+
+.loka-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid var(--panel-line-2);
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--sys-font);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--panel-ink-4);
+  transition: background .12s, color .12s;
+}
+.loka-checkbox:hover { background: #F5F6FA; }
+.loka-checkbox[data-checked="true"] { background: #F5F6FA; color: #020F1F; }
+
+.loka-checkbox-box {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--panel-line);
+  border-radius: 100px;
+  color: #FFFFFF;
+  transition: background .12s, border-color .12s;
+}
+.loka-checkbox-box svg { opacity: 0; transition: opacity .12s; }
+.loka-checkbox[data-checked="true"] .loka-checkbox-box { background: var(--blue-100); border-color: var(--blue-100); }
+.loka-checkbox[data-checked="true"] .loka-checkbox-box svg { opacity: 1; }
+
+/* ── Input Field — Loka Figma field family ─────────────────────────────── */
+
+.loka-field-label {
+  display: block;
+  font-family: var(--sys-font);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--panel-ink-2);
+}
+
+.loka-field-control {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  font-family: var(--sys-font);
+  font-size: 14.5px;
+  color: var(--panel-ink);
+  background: var(--panel-bg-soft);
+  border: 1px solid var(--panel-line);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color .14s, box-shadow .14s;
+}
+.loka-field-control::placeholder { color: #A8B3CA; }
+.loka-field-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+.loka-field-control:disabled { opacity: 0.55; cursor: not-allowed; }
+.loka-field-control--textarea {
+  height: auto;
+  min-height: 90px;
+  padding: 12px 16px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* ── Panel card — the floating editor rail panel ───────────────────────── */
+
+.loka-panel-card {
+  background: var(--panel-bg-soft);
+  border: 1px solid var(--panel-line);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+/* ── Swatches (no direct spec — styled with system tokens) ─────────────── */
+
+.loka-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid var(--panel-line);
+  transition: all .15s ease;
+}
+.loka-swatch[data-active="true"] {
+  outline: 2px solid var(--blue-100);
+  outline-offset: 2px;
+}
+
+/* ── Graphic picker tile (no direct spec — styled with system tokens) ──── */
+
+.loka-gfx-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--panel-line);
+  background: var(--panel-bg);
+  color: var(--panel-ink-3);
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.loka-gfx-tile:hover { background: #F5F6FA; }
+.loka-gfx-tile[data-active="true"] {
+  background: var(--blue-soft);
+  border-color: var(--blue-100);
+  color: var(--panel-ink);
+}
