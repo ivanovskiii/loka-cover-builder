@@ -13,6 +13,9 @@ import * as centeredLogo from "./CenteredLogo/fields.js";
 import { NetworkGraphCover } from "./NetworkGraph/renderer.jsx";
 import * as networkGraph from "./NetworkGraph/fields.js";
 
+import { GlowTitleCover } from "./GlowTitle/renderer.jsx";
+import * as glowTitle from "./GlowTitle/fields.js";
+
 export const TEMPLATES = [
   {
     id: "photo-hero",
@@ -37,5 +40,13 @@ export const TEMPLATES = [
     fields: networkGraph.fields,
     defaults: networkGraph.defaults,
     preview: networkGraph.preview,
+  },
+  {
+    id: "glow-title",
+    name: "Glow title",
+    Renderer: GlowTitleCover,
+    fields: glowTitle.fields,
+    defaults: glowTitle.defaults,
+    preview: glowTitle.preview,
   },
 ];

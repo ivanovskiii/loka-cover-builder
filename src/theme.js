@@ -9,6 +9,7 @@ export const TOKENS = {
   black: "#010812",
   cardDark: "#020F1F",
   greyBlue: "#7C92AE",
+  offWhite: "#F5F2EA",
 };
 
 // Cover is authored at a fixed 2:1 canvas (matches how the blog platform
@@ -51,7 +52,7 @@ export const SYS_BLUE_SOFT = "#EEF2FE";
 export const SYS_FONT = "'Alliance No.2','Inter',-apple-system,system-ui,sans-serif";
 
 // Frame accent swatches offered in the editor.
-export const SWATCHES = [TOKENS.navyBorder, TOKENS.blue, "#0F6E56", "#712B13", "#2C2C2A"];
+export const SWATCHES = [TOKENS.navy, TOKENS.offWhite];
 
 // Title-position layouts for photo-hero.
 export const LAYOUTS = [

@@ -7,7 +7,7 @@ export const defaults = {
   userImage: null,
   logoText: "Add Title",
   caption: "",
-  accent: TOKENS.navyBorder,
+  accent: TOKENS.navy,
   graphicId: null,
   backgroundPattern: "dots",
 };
@@ -17,7 +17,7 @@ export const preview = {
   userImage: null,
   logoText: "SAGEMAKER",
   caption: "Build, train & deploy ML models",
-  accent: TOKENS.navyBorder,
+  accent: TOKENS.navy,
   graphicId: "AI & Agentic",
   backgroundPattern: "dots",
 };

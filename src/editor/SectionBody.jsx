@@ -150,6 +150,25 @@ export function SectionBody({ section, fields, state, set, setToggle, onUpload, 
             <div style={{ height: 18 }} />
           </>
         )}
+        {has("glow") && (
+          <>
+            <label style={labelStyle}>Background</label>
+            <Button
+              variant="outline-light"
+              size="sm"
+              block
+              onClick={() =>
+                set({
+                  glowX: Math.round(15 + Math.random() * 70),
+                  glowY: Math.round(12 + Math.random() * 55),
+                })
+              }
+            >
+              Shuffle gradient background
+            </Button>
+            <div style={{ height: 18 }} />
+          </>
+        )}
         {has("accent") && (
           <>
             <label style={labelStyle}>Frame accent</label>
