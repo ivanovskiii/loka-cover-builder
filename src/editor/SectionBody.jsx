@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { LAYOUTS } from "../theme.js";
 import { labelStyle, dropzoneStyle, Button, Toggle, Segmented, TabItem, Swatches } from "../components/ui/index.jsx";
 import { GRAPHICS } from "../data/graphics.js";
+import { LOGOS } from "../data/logos.js";
 
 // Renders the controls for one rail section, given the template's fields and
 // the current editor state. `has(field)` gates each control.
 export function SectionBody({ section, fields, state, set, setToggle, onUpload, uploadingImage }) {
   const has = (x) => fields.includes(x);
+  // The panel this belongs to remounts (keyed by section) each time the rail
+  // switches sections, so this is safe to compute once per visit — reopening
+  // the graphic picker lands on whichever pool the current selection is in.
+  const [graphicPool, setGraphicPool] = useState(() =>
+    LOGOS.some((g) => g.label === state.graphicId) ? "logos" : "illustrations"
+  );
 
   if (section === "content") {
     return (
@@ -106,14 +114,21 @@ export function SectionBody({ section, fields, state, set, setToggle, onUpload, 
   }
 
   if (section === "graphic") {
+    const pool = graphicPool === "logos" ? LOGOS : GRAPHICS;
     return (
       <>
         <label style={labelStyle}>Corner graphic</label>
+        <Segmented
+          options={[["illustrations", "Illustrations"], ["logos", "Company logos"]]}
+          value={graphicPool}
+          onChange={setGraphicPool}
+        />
+        <div style={{ height: 12 }} />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
           <button className="loka-gfx-tile" data-active={!state.graphicId} onClick={() => set({ graphicId: null })} style={{ fontSize: 11, fontFamily: "inherit" }}>
             None
           </button>
-          {GRAPHICS.map((g) => (
+          {pool.map((g) => (
             <button key={g.label} title={g.label} className="loka-gfx-tile" data-active={state.graphicId === g.label} onClick={() => set({ graphicId: g.label })}>
               <span style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} dangerouslySetInnerHTML={{ __html: g.svg }} />
             </button>

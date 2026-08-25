@@ -1,13 +1,13 @@
-import { GRAPHICS } from "../data/graphics.js";
+import { findGraphic } from "../data/iconLookup.js";
 
-// Native size of every GRAPHICS entry's outer <svg> (see data/graphics.js).
+// Native size of every GRAPHICS/LOGOS entry's outer <svg> (see data/graphics.js, data/logos.js).
 const NATIVE_SIZE = 64;
 
-// One of the design system's isometric spot illustrations, pinned to a
-// corner of the cover. Scaled up via CSS transform since the source SVGs
-// carry fixed width/height attributes.
+// One of the design system's isometric spot illustrations (or a company
+// logo), pinned to a corner of the cover. Scaled up via CSS transform since
+// the source SVGs carry fixed width/height attributes.
 export function CornerGraphic({ graphicId, color, size = 128, inset = 44 }) {
-  const graphic = GRAPHICS.find((g) => g.label === graphicId);
+  const graphic = findGraphic(graphicId);
   if (!graphic) return null;
   return (
     <div

@@ -1,6 +1,7 @@
 import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 import { GRAPHICS } from "../../data/graphics.js";
+import { findGraphic } from "../../data/iconLookup.js";
 
 // A dark centered card, floating on the field, holding a mark + wordmark
 // lifted off the card by a soft glow behind it.
@@ -16,7 +17,7 @@ export function CenteredLogoCover({ state, innerRef }) {
   const gridSize = 80;
   const cardW = 800;
   const cardH = 480;
-  const graphic = GRAPHICS.find((g) => g.label === graphicId) || GRAPHICS[0];
+  const graphic = findGraphic(graphicId) || GRAPHICS[0];
 
   return (
     <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
