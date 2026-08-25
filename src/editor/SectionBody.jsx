@@ -124,13 +124,13 @@ export function SectionBody({ section, fields, state, set, setToggle, onUpload, 
           onChange={setGraphicPool}
         />
         <div style={{ height: 12 }} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
-          <button className="loka-gfx-tile" data-active={!state.graphicId} onClick={() => set({ graphicId: null })} style={{ fontSize: 11, fontFamily: "inherit" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(68px, 1fr))", gap: 6 }}>
+          <button className="loka-gfx-tile" data-active={!state.graphicId} onClick={() => set({ graphicId: null })} style={{ fontSize: 10, fontFamily: "inherit" }}>
             None
           </button>
           {pool.map((g) => (
             <button key={g.label} title={g.label} className="loka-gfx-tile" data-active={state.graphicId === g.label} onClick={() => set({ graphicId: g.label })}>
-              <span style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} dangerouslySetInnerHTML={{ __html: g.svg }} />
+              <span className="loka-gfx-tile-icon" dangerouslySetInnerHTML={{ __html: g.svg }} />
             </button>
           ))}
         </div>

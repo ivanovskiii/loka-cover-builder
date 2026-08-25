@@ -87,7 +87,7 @@ export function Editor({ template, onBack }) {
 
         {/* panel */}
         {panelOpen && (
-          <div key={openSection} className="loka-panel loka-scroll" style={{ width: 320, flexShrink: 0, ...panelStyle, overflowY: "auto", maxHeight: "calc(100vh - 48px)" }}>
+          <div key={openSection} className="loka-panel loka-scroll" style={{ width: 320, maxWidth: "calc(100vw - 112px)", flexShrink: 1, minWidth: 0, ...panelStyle, overflowY: "auto", maxHeight: "calc(100vh - 48px)" }}>
             <div style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", color: PANEL_INK_2, fontWeight: 500, marginBottom: 16 }}>
               {sections.find((s) => s.id === openSection)?.name}
             </div>
