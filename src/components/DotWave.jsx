@@ -35,10 +35,10 @@ export function DotWave() {
         for (let j = 0; j < rows; j++) {
           const x0 = i * GAP, y0 = j * GAP;
           const phase = (x0 + y0) * 0.012 - t * 0.0009;
-          const dy = reduce ? 0 : Math.sin(phase) * 2.4;
-          const dx = reduce ? 0 : Math.cos(phase * 0.8) * 1.6;
+          const dy = reduce ? 0 : Math.sin(phase) * 3.2;
+          const dx = reduce ? 0 : Math.cos(phase * 0.8) * 2.1;
           const shimmer = reduce ? 0.5 : 0.5 + 0.5 * Math.sin(phase * 1.3);
-          const alpha = 0.05 + shimmer * 0.1;
+          const alpha = 0.08 + shimmer * 0.14;
           ctx.beginPath();
           ctx.arc(x0 + dx, y0 + dy, R, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${DOT[0]},${DOT[1]},${DOT[2]},${alpha})`;
