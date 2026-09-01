@@ -117,7 +117,7 @@ export function SectionBody({ section, fields, state, set, setToggle, onUpload, 
     const pool = graphicPool === "logos" ? LOGOS : GRAPHICS;
     return (
       <>
-        <label style={labelStyle}>Corner graphic</label>
+        <label style={labelStyle}>Graphic</label>
         <Segmented
           options={[["illustrations", "Illustrations"], ["logos", "Company logos"]]}
           value={graphicPool}
