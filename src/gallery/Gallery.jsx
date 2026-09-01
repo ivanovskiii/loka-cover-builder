@@ -1,4 +1,4 @@
-import { INK, INK_SOFT, HAIRLINE, GLASS, SYS_FONT, COVER_W, COVER_H } from "../theme.js";
+import { INK, INK_SOFT, HAIRLINE, SYS_FONT, COVER_W, COVER_H } from "../theme.js";
 import { Atmosphere } from "../components/Atmosphere.jsx";
 import { ScaledCover } from "../components/ScaledCover.jsx";
 import { TEMPLATES, CATEGORIES } from "../templates/registry.js";
@@ -32,7 +32,10 @@ export function Gallery({ onPick, noiseUrl }) {
             <div style={{ fontSize: 13, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: INK_SOFT, borderBottom: `1px solid ${HAIRLINE}`, paddingBottom: 12 }}>
               {category}
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 24, marginTop: 20 }}>
+            {/* overflowX: auto forces overflowY to compute as auto too (a CSS
+                quirk), which would otherwise clip the hover scale/halo against
+                this row's own edges — the padding gives it room to breathe. */}
+            <div className="loka-scroll" style={{ display: "flex", gap: 24, marginTop: 20, overflowX: "auto", padding: "14px 4px 22px" }}>
               {templates.map((tpl) => {
                 const base = tpl.preview || tpl.defaults;
                 const previewState = { ...base, grainLevel: base.grainLevel || "medium" };
@@ -41,7 +44,7 @@ export function Gallery({ onPick, noiseUrl }) {
                     key={tpl.id}
                     onClick={() => onPick(tpl.id)}
                     className="loka-card"
-                    style={{ position: "relative", background: GLASS, backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: `1px solid ${HAIRLINE}`, borderRadius: 22, padding: 16, cursor: "pointer", textAlign: "left", boxShadow: "0 10px 34px rgba(0,0,0,0.45)" }}
+                    style={{ position: "relative", flex: "0 0 380px", width: 380, background: "none", border: "none", borderRadius: 12, padding: 0, cursor: "pointer", textAlign: "left" }}
                   >
                     <span className="halo" />
                     <div style={{ width: "100%", aspectRatio: `${COVER_W}/${COVER_H}`, borderRadius: 12, overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.5)", position: "relative" }}>

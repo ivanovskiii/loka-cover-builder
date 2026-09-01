@@ -19,7 +19,7 @@ export function Atmosphere() {
         .loka-orb.active .halo{opacity:.75}
         .loka-panel{animation:lokaPanelIn .28s cubic-bezier(.2,.8,.2,1)}
         @keyframes lokaPanelIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
-        .loka-scroll::-webkit-scrollbar{width:8px}
+        .loka-scroll::-webkit-scrollbar{width:8px;height:8px}
         .loka-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:8px}
         .loka-scroll::-webkit-scrollbar-track{background:transparent}
         input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background:rgba(255,255,255,.12)}
