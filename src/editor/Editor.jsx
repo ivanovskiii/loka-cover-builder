@@ -58,7 +58,7 @@ export function Editor({ template, onBack }) {
   return (
     <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden", color: INK, fontFamily: SYS_FONT }}>
       <Atmosphere />
-      <div style={{ position: "relative", zIndex: 1, display: "flex", gap: 20, padding: 24, minHeight: "100vh", boxSizing: "border-box", alignItems: "stretch" }}>
+      <div style={{ position: "relative", zIndex: 1, display: "flex", gap: 20, padding: "24px 40px", minHeight: "100vh", boxSizing: "border-box", alignItems: "stretch" }}>
         {/* rail — floating orbs */}
         <div style={{ display: "flex", flexDirection: "column", gap: 14, flexShrink: 0, alignItems: "center" }}>
           <button onClick={onBack} title="Back to templates" className="loka-orb loka-btn loka-btn--outline-dark" style={orb({ border: `1px solid ${HAIRLINE}`, boxShadow: "0 8px 24px rgba(0,0,0,0.4)" })}>
@@ -87,7 +87,7 @@ export function Editor({ template, onBack }) {
 
         {/* panel */}
         {panelOpen && (
-          <div key={openSection} className="loka-panel loka-scroll" style={{ width: 320, maxWidth: "calc(100vw - 112px)", flexShrink: 1, minWidth: 0, ...panelStyle, overflowY: "auto", maxHeight: "calc(100vh - 48px)" }}>
+          <div key={openSection} className="loka-panel loka-scroll" style={{ width: 320, maxWidth: "calc(100vw - 144px)", flexShrink: 1, minWidth: 0, ...panelStyle, overflowY: "auto", maxHeight: "calc(100vh - 48px)" }}>
             <div style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", color: PANEL_INK_2, fontWeight: 500, marginBottom: 16 }}>
               {sections.find((s) => s.id === openSection)?.name}
             </div>

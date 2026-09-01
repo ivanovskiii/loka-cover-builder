@@ -17,7 +17,7 @@ export function Gallery({ onPick, noiseUrl }) {
   return (
     <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden", color: INK, fontFamily: SYS_FONT }}>
       <Atmosphere />
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 1100, margin: "0 auto", padding: "24px 32px 48px" }}>
+      <div style={{ position: "relative", zIndex: 1, padding: "24px 40px 48px" }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
             <img src={lokaLogo} alt="Loka" style={{ height: 32, width: "auto" }} />
