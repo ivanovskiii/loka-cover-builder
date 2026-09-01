@@ -9,7 +9,7 @@ export function Atmosphere() {
       <style>{`
         @keyframes lokaBreath{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.85;transform:scale(1.08)}}
         .loka-card{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
-        .loka-card:hover{transform:translateY(-8px) scale(1.02)}
+        .loka-card:hover{transform:scale(1.03)}
         .loka-card .halo{position:absolute;inset:-2px;border-radius:22px;background:radial-gradient(circle at 50% 40%,rgba(61,107,255,.4) 0%,transparent 70%);opacity:0;transition:opacity .3s ease;pointer-events:none;filter:blur(10px);z-index:-1}
         .loka-card:hover .halo{opacity:1;animation:lokaBreath 3.2s ease-in-out infinite}
         .loka-orb{position:relative;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,color .25s ease,background .25s ease}
