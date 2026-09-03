@@ -113,6 +113,27 @@ export function SectionBody({ section, fields, state, set, setToggle, onUpload, 
     );
   }
 
+  if (section === "graphic" && has("graph")) {
+    return (
+      <>
+        <Button
+          variant="outline-light"
+          size="sm"
+          block
+          onClick={() => set({ graphSeed: Math.floor(Math.random() * 1e9) })}
+        >
+          Shuffle network graph
+        </Button>
+        <div style={{ height: 18 }} />
+        <label style={labelStyle}>Number of nodes ({state.nodeCount})</label>
+        <input type="range" min="5" max="16" step="1" value={state.nodeCount} onChange={(e) => set({ nodeCount: parseInt(e.target.value, 10) })} style={{ width: "100%" }} />
+        <div style={{ height: 18 }} />
+        <label style={labelStyle}>Line thickness ({state.lineWidth})</label>
+        <input type="range" min="2" max="10" step="1" value={state.lineWidth} onChange={(e) => set({ lineWidth: parseInt(e.target.value, 10) })} style={{ width: "100%" }} />
+      </>
+    );
+  }
+
   if (section === "graphic") {
     const pool = graphicPool === "logos" ? LOGOS : GRAPHICS;
     return (

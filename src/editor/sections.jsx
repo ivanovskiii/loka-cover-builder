@@ -27,6 +27,9 @@ export function sectionsFor(fields) {
   if (fields.includes("graphic")) {
     s.push({ id: "graphic", name: "Graphic", icon: "graphic" });
   }
+  if (fields.includes("graph")) {
+    s.push({ id: "graphic", name: "Graphic", icon: "graphic" });
+  }
   s.push({ id: "style", name: "Style", icon: "style" });
   return s;
 }

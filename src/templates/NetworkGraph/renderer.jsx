@@ -15,14 +15,14 @@ const GRAPHIC_H = NETWORK_NATIVE_H * SCALE;
 // A network of connected nodes with two "spotlight" panels, evoking a
 // system/architecture diagram. Graphic-only, no text — matches the source design.
 export function NetworkGraphCover({ state, innerRef }) {
-  const { mode, backgroundPattern } = state;
+  const { mode, backgroundPattern, graphSeed, nodeCount, lineWidth } = state;
   const isLight = mode === "light";
   const framePad = 14;
 
   const graphicSvg = networkGraphicSvg(
     isLight
-      ? { lineColor: TOKENS.navy, panelFill: "rgba(10,26,47,0.06)", panelStroke: "rgba(10,26,47,0.25)" }
-      : { lineColor: TOKENS.greyBlue, panelFill: "rgba(255,255,255,0.1)", panelStroke: "rgba(255,255,255,0.4)" }
+      ? { lineColor: TOKENS.navy, panelFill: "rgba(10,26,47,0.06)", panelStroke: "rgba(10,26,47,0.25)", seed: graphSeed, nodeCount, lineWidth }
+      : { lineColor: TOKENS.greyBlue, panelFill: "rgba(255,255,255,0.1)", panelStroke: "rgba(255,255,255,0.4)", seed: graphSeed, nodeCount, lineWidth }
   );
 
   return (
