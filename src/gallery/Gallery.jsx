@@ -1,4 +1,4 @@
-import { INK, INK_SOFT, HAIRLINE, SYS_FONT, COVER_W, COVER_H } from "../theme.js";
+import { INK, INK_SOFT, HAIRLINE, SYS_FONT, COVER_W, COVER_H, TOKENS } from "../theme.js";
 import { Atmosphere } from "../components/Atmosphere.jsx";
 import { ScaledCover } from "../components/ScaledCover.jsx";
 import { TEMPLATES, CATEGORIES } from "../templates/registry.js";
@@ -38,7 +38,12 @@ export function Gallery({ onPick, noiseUrl }) {
             <div className="loka-scroll" style={{ display: "flex", gap: 24, marginTop: 20, overflowX: "auto", padding: "14px 4px 22px" }}>
               {templates.map((tpl) => {
                 const base = tpl.preview || tpl.defaults;
-                const previewState = { ...base, grainLevel: base.grainLevel || "medium" };
+                // Thumbnails always show dark mode regardless of the
+                // template's own default/preview mode, for a consistent
+                // gallery — and the frame follows suit, going light so it
+                // still reads against the dark background instead of
+                // whatever accent the template's preview happened to pick.
+                const previewState = { ...base, grainLevel: base.grainLevel || "medium", mode: "dark", accent: TOKENS.offWhite };
                 return (
                   <button
                     key={tpl.id}
