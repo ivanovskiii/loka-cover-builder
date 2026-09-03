@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H, GRAIN_LEVELS, LAYOUTS } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, GRAIN_LEVELS, LAYOUTS, SYS_FONT } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 import { CornerGraphic } from "../../components/CornerGraphic.jsx";
 
@@ -21,7 +21,7 @@ export function PhotoHeroCover({ state, innerRef, noiseUrl }) {
   };
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: TOKENS.navy, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: TOKENS.navy, overflow: "hidden", fontFamily: SYS_FONT }}>
       {bgImg ? (
         <img src={bgImg} alt="" crossOrigin="anonymous" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }} />
       ) : (

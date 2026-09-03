@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, SYS_FONT } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 import { GRAPHICS } from "../../data/graphics.js";
 import { findGraphic } from "../../data/iconLookup.js";
@@ -20,7 +20,7 @@ export function CenteredLogoCover({ state, innerRef }) {
   const graphic = findGraphic(graphicId) || GRAPHICS[0];
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: SYS_FONT }}>
       <PlaceholderBackground mode={mode} pattern={backgroundPattern} size={backgroundPattern === "grid" ? gridSize : undefined} />
 
       {/* soft field-wide glow the card sits inside */}

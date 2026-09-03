@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, SYS_FONT } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 import { networkGraphicSvg, NETWORK_NATIVE_W, NETWORK_NATIVE_H } from "../../data/networkGraphic.js";
 
@@ -26,7 +26,7 @@ export function NetworkGraphCover({ state, innerRef }) {
   );
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: SYS_FONT }}>
       <PlaceholderBackground mode={mode} pattern={backgroundPattern} />
 
       <div

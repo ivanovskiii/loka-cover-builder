@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, SYS_FONT } from "../../theme.js";
 import { GLOW_BLUE } from "../../data/glowPalettes.js";
 
 // A minimal "horizon" mark — a line with a node at each end and one at
@@ -19,7 +19,7 @@ export function HorizonGlowCover({ state, innerRef }) {
   const x2 = cx + lineW / 2;
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: TOKENS.cardDark, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: TOKENS.cardDark, overflow: "hidden", fontFamily: SYS_FONT }}>
       <div
         style={{
           position: "absolute", inset: -140, zIndex: 0,

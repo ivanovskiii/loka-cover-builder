@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, SYS_FONT } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 
 // Six overlapping circle outlines arranged in a ring (a flower-of-life
@@ -24,7 +24,7 @@ export function RingBloomCover({ state, innerRef }) {
   const circles = petals(cx, cy);
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: SYS_FONT }}>
       <PlaceholderBackground mode={mode} pattern={backgroundPattern} />
 
       <svg width={COVER_W} height={COVER_H} style={{ position: "absolute", inset: 0, zIndex: 1 }}>

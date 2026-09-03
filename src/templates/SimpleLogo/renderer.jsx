@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, SYS_FONT } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 import { findGraphic } from "../../data/iconLookup.js";
 
@@ -13,7 +13,7 @@ export function SimpleLogoCover({ state, innerRef }) {
   const graphic = graphicId ? findGraphic(graphicId) : null;
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: SYS_FONT }}>
       <PlaceholderBackground mode={mode} pattern={backgroundPattern} />
 
       <div style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none", border: `${framePad}px solid ${accent}` }} />

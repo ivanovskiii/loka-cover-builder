@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, SYS_FONT } from "../../theme.js";
 import { findGraphic } from "../../data/iconLookup.js";
 import { GRAPHICS } from "../../data/graphics.js";
 
@@ -40,7 +40,7 @@ export function IconDuoCover({ state, innerRef }) {
   );
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: isLight ? TOKENS.light : TOKENS.black, overflow: "hidden", fontFamily: SYS_FONT }}>
       <div style={{ position: "absolute", inset: 0, zIndex: 0, background: isLight
         ? "radial-gradient(circle at 50% 50%, rgba(27,79,232,0.1) 0%, transparent 60%)"
         : "radial-gradient(circle at 50% 50%, rgba(27,79,232,0.22) 0%, transparent 60%)" }} />

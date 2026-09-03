@@ -1,4 +1,4 @@
-import { TOKENS, COVER_W, COVER_H, GRAIN_LEVELS } from "../../theme.js";
+import { TOKENS, COVER_W, COVER_H, GRAIN_LEVELS, SYS_FONT } from "../../theme.js";
 import { PlaceholderBackground } from "../../components/PlaceholderBackground.jsx";
 import { findGraphic } from "../../data/iconLookup.js";
 
@@ -10,7 +10,7 @@ export function PhotoLogoCover({ state, innerRef, noiseUrl }) {
   const graphic = graphicId ? findGraphic(graphicId) : null;
 
   return (
-    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: TOKENS.black, overflow: "hidden", fontFamily: "'Inter','Helvetica Neue',Arial,sans-serif" }}>
+    <div ref={innerRef} style={{ position: "relative", width: COVER_W, height: COVER_H, background: TOKENS.black, overflow: "hidden", fontFamily: SYS_FONT }}>
       {userImage ? (
         <img
           src={userImage}
